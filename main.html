@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Todo Lists</title>
+    <link rel="stylesheet" href="stylesheets/whitespacereset.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+    <script src="javascripts/script.js"></script>
+  </head>
+  <body>
+    <label for="show-nav">
+      <img src="images/hamburger.png" alt="responsive hamburger icon">
+    </label>
+    <input type="checkbox" id="show-nav">
+    <nav>
+      <section class="nav-all">
+        <table>
+          <thead>
+            <tr id="allTodosList" class="active">
+              <td colspan="2"><h2>All Todos</h2></td>
+              <td><span class="remaining"></span></td>
+            </tr>
+          </thead>
+          <tbody id="todosByDate">
+          </tbody>
+        </table>
+      </section>
+      <section class="nav-complete">
+        <table>
+          <thead>
+            <tr id="allCompleteList">
+              <td colspan="2"><h2>Completed</h2></td>
+              <td><span class="remaining"></span></td>
+            </tr>
+          </thead>
+          <tbody id="completeTodosByDate">
+          </tbody>
+        </table>
+      </section>
+    </nav>
+    <main>
+      <section class="header">
+      <h2>All Todos</h2>
+      <span class="remaining" id="selectedTotal">0</span>
+      </section>
+      <section class="list-items">
+        <table>
+          <thead>
+            <tr>
+              <td><h3><a href="#" id="showModalForm">+ Add new to do</a></h3></td>
+            </tr>
+          </thead>
+          <tbody id="listTable">
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <script type="text/x-handlebars" id="modalLayerTemplate">
+      <div id="modalLayer">
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" id="modalFormTemplate">
+     <form action="#" method="get" id="modalForm" data-id="{{id}}">
+        <fieldset>
+          <dl>
+            <dt><label for="title">Title</label></dt><!--
+            --><dd><input type="text" name="title" placeholder="Title" id="title" value="{{title}}"></dd>
+            <dt>Due Date</dt><!--
+            --><dd>
+              <select name="day" id="day">
+                {{#if day}}
+                  <option selected>{{day}}</option>
+                {{else}}
+                  <option selected hidden>Day</option>
+                {{/if}}
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+              </select>
+              /
+              <select name="month" id="month">
+                {{#if month}}
+                  <option selected>{{month}}</option>
+                {{else}}
+                  <option selected hidden>Month</option>
+                {{/if}}
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
+              /
+              <select name="year" id="year">
+                {{#if year}}
+                  <option selected>{{year}}</option>
+                {{else}}
+                  <option selected hidden>Year</option>
+                {{/if}}
+                <option>2014</option>
+                <option>2015</option>
+                <option>2016</option>
+                <option>2017</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+              </select>
+            </dd>
+            <dt><label for="description">Description</label></dt><!--
+            --><dd><textarea rows="8" name="description" id="description" placeholder="Description">{{description}}</textarea></dd>
+          </dl>
+          <div class="tab"></div><!--
+          --><a href="#" class="form-button" type="submit" id="submitNewTodo">Save</a><!--
+          --><a href="#" class="form-button" id="markAsComplete">Mark As Complete</a>
+        </fieldset>
+      </form>
+    </script>
+
+    <script type="text/x-handlebars" id="todoListItems">
+      {{#each todos}}
+      {{> todoListItem}}
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" id="todoListItem" data-type="partial">
+      {{#if complete}}
+        <tr class="complete">
+      {{else}}
+        <tr>
+      {{/if}}
+        <td colspan="2" id="toggleListItem">
+          <div class="checkbox"></div>
+          <a href="#" data-id="{{id}}" id="updateTodo">{{title}} - {{dueDate}}</a>
+        </td>
+        <td id="destroyTodo" data-id="{{id}}"><a href="#"><img src="images/trash.png" alt="trashcan icon"></a></td>
+      </tr>
+    </script>
+
+
+    <script type="text/x-handlebars" id="navListItems">
+      {{#each lists}}
+      {{> list}}
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" data-type="partial" id="list">
+       <tr data-date="{{date}}" class={{status}}>
+        <td></td>
+        <td><a href="#">{{date}}</a></td>
+        <td><span class="remaining">{{total}}</span></td>
+      </tr>
+    </script>
+
+  </body>
+</html>

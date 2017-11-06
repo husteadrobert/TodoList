@@ -1,0 +1,393 @@
+@import url("whitespacereset.css");
+
+body {
+  font: normal 16px Helvetica, Arial, sans-serif;
+}
+
+nav {
+  max-width: 335px;
+  width: 30%;
+  background-color: rgb(70, 79, 119);
+  height: 100vh;
+  float: left;
+  color: white;
+  padding-top: 63px;
+}
+
+nav a {
+  color: rgb(231, 231, 231);
+}
+
+main {
+  float: left;
+  width: 70%;
+  box-sizing: border-box;
+  padding-left: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: normal;
+  display: inline-block;
+  padding: 10px 0;
+  vertical-align: middle;
+}
+
+.nav-complete h2:before,
+.nav-all h2:before {
+  display: inline-block;
+  width: 26px;
+  height: 31px;
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+  content: "";
+}
+
+.nav-complete h2:before {
+  background: transparent url("../images/complete.png") 0 0 no-repeat;
+}
+
+.nav-all h2:before {
+  background: transparent url("../images/alltodos.png") 0 0 no-repeat;
+}
+
+.nav-all h2,
+.nav-complete h2 {
+  margin-left: 40px;
+}
+
+.nav-all,
+.nav-complete {
+  margin: 0 auto;
+}
+
+.active {
+  background: rgb(56, 63, 95);
+}
+
+.active a {
+  color: white;
+}
+
+.active .remaining,
+main span.remaining {
+  background-color: rgb(20, 143, 213);
+}
+
+.nav-complete {
+  margin: 0 auto;
+  padding-top: 75px;
+}
+
+.nav-all table,
+.nav-complete table {
+  width: 100%;
+  color: rgb(231, 231, 231);
+  border-collapse: collapse;
+}
+
+.nav-all td,
+.nav-complete td {
+  padding: 10px 0;
+  padding-right: 15px;
+}
+
+.nav-complete td {
+  text-decoration: line-through;
+}
+
+.nav-complete td:last-of-type {
+  text-decoration: none;
+}
+
+.nav-all tbody td:first-of-type,
+.nav-complete tbody td:first-of-type {
+  width: 25%;
+}
+
+#todosByDate tr:hover,
+#completeTodosByDate tr:hover {
+  cursor: pointer;
+}
+
+.remaining {
+  background-color: rgb(107, 114, 146);
+  padding: 0 4px;
+  border-radius: 10px;
+  font-size: 14px;
+  position: relative;
+  top: -1px;
+}
+
+dl,
+dt,
+dd {
+  display: inline-block;
+}
+
+
+main table {
+  width: 90%;
+  border-collapse: collapse;
+  max-width: 1000px;
+}
+
+section.header {
+  padding-top: 75px;
+  padding-bottom:20px;
+}
+
+main span.remaining {
+  margin-left: 25px;
+  color: white;
+  position: initial;
+}
+
+main table td {
+  text-align: left;
+  border-top: 1px solid rgb(231, 231, 231);
+  padding: 15px 5px;
+}
+
+main table thead td {
+  border-top: none;
+}
+
+main table thead a,
+main table td a:hover {
+  color: rgb(20, 143, 213);
+  font-weight: normal;
+}
+
+main table td.complete a:hover {
+  color: rgb(107, 114, 146);
+}
+
+main tbody td:first-of-type {
+  width: 95%;
+}
+
+main tbody td:last-of-type {
+  text-align: right;
+}
+
+
+td.complete a,
+.complete a{
+  text-decoration: line-through;
+  color: #b3b3b3
+}
+
+.complete div.checkbox {
+  background: transparent url("../images/ls-gray-check.png") 0 100% no-repeat;
+}
+
+main table td:hover {
+  background-color: #b5e3ea;
+}
+
+main table thead td:hover {
+  background-color: white;
+}
+
+main table td:last-of-type {
+  text-align: center;
+}
+
+main table thead td:last-of-type {
+  text-align: left;
+}
+
+main table td + td:hover {
+  background-color: #fb6f6f;
+}
+
+main table thead:hover {
+  background-color: none;
+}
+
+.complete {
+  margin-left: -20px;
+}
+
+div.checkbox:hover,
+div.checked:hover {
+  cursor: pointer;
+}
+
+div.checkbox {
+  width: 14px;
+  height:13.8px;
+  background: transparent url("../images/ls-gray-check.png") 0 0 no-repeat;
+  display: inline-block;
+}
+
+div.checked {
+  background-position: 0 100%;
+}
+
+label {
+  cursor: pointer;
+}
+
+#show-nav,
+label[for="show-nav"] {
+  display: none;
+}
+
+#listTable tr {
+
+}
+
+/*FORM STYLES*/
+
+fieldset,
+input[type="text"],
+textarea {
+  box-sizing: border-box;
+}
+
+fieldset {
+  width: 575px;
+  padding: 10px 0 50px 20px;
+  background-color: white;
+}
+
+form dl {
+  padding: 10px 0;
+  margin-bottom: 25px;
+}
+
+form dt,
+div.tab {
+  width: 20%;
+  display: inline-block;
+  padding: 15px 0;
+}
+
+div.tab {
+  padding: 0;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+}
+
+select {
+  width: 30.9%;
+  margin: 0 2px;
+}
+
+select:last-of-type {
+  margin: 0 0;
+}
+
+form dd {
+  display: inline-block;
+  width: 75%;
+}
+
+textarea {
+  vertical-align: top;
+  resize: none;
+}
+
+input[type="text"],
+select,
+textarea {
+  padding: 5px 5px;
+  border: 1px solid rgb(179, 179, 179);
+}
+
+select {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  -moz-appearance: none;
+  border-radius: 0px;
+  background: url("../images/arrows.png") no-repeat right;
+  padding: 5px 2px;
+  margin-left: -1px;
+}
+
+select + select {
+  margin-left: 0;
+}
+
+
+input.form-button,
+a.form-button {
+  margin-top: 25px;
+  color: white;
+  background: rgb(20, 143, 231);
+  padding: 10px 54px;
+  margin-right: 2px;
+  border-radius: 5px;
+  letter-spacing: 0.1em;
+}
+
+#modalForm {
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  z-index: 0;
+  margin: 0 0 0 -287px;
+}
+
+#modalLayer {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  content: "";
+  background: rgba(0, 0, 0, .4);
+}
+
+
+
+/*MEDIA QUERIES*/
+
+@media (max-width: 768px) {
+  label[for="show-nav"] {
+    display: inline-block;
+    padding: 20px 0 0 10px;
+    margin: 0 25px;
+  }
+  main {
+    padding-left:10px;
+    width: auto;
+    float:none;
+    overflow: auto;
+  }
+  nav {
+    display: none;
+  }
+  main table {
+    margin: 0 20px;
+  }
+  section.header {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin: 0 25px;
+  }
+
+  section.list-items {
+    width: 100%;
+    display: inline-block;
+  }
+
+  #show-nav:checked + nav {
+    display: block;
+    width: 40%;
+    padding-top: 52px;
+  }
+}
